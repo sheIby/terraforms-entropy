@@ -4,9 +4,11 @@ import {
   Box,
   Grid,
   Typography,
+  Button,
   TextField,
   Slider
 } from '@mui/material'
+import GitHubIcon from '@mui/icons-material/GitHub'
 import useWindowSize from 'hooks/useWindowSize'
 import Colors from 'components/Colors'
 import Characters from 'components/Characters'
@@ -17,7 +19,7 @@ import TerraformsCustom from 'sketches/TerraformsCustom'
 const View = () => {
 
   // Window dimensions
-  const window = useWindowSize()
+  const windowSize = useWindowSize()
   
   // Token
   const [tokenId, setTokenId] = useState("5039")
@@ -50,6 +52,16 @@ const View = () => {
 
   return (
     <>
+      <Box position='absolute' left={280} top={10}>
+        <Button
+          sx={{color: '#000010'}}
+          onClick={() => {
+            window.open('https://github.com/sheIby/terraforms-entropy')
+          }}
+          >
+          <GitHubIcon fontSize='large'/>
+        </Button>
+      </Box>    
       <Grid container spacing={1}>
         <Grid item xs={4}>
           <Box margin={2}>
@@ -114,7 +126,7 @@ const View = () => {
               <TerraformsCustom 
                 heightmapIndices={heightmapIndices}
                 supplementalData={supplementalData}
-                width={window.width*0.6} 
+                width={windowSize.width*0.6} 
                 height={800} 
                 sliderOne={sliderOne} 
                 sliderTwo={sliderTwo} 
